@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root 'pages#about'
+  root 'pages#index'
   match '/about',   to: 'pages#about',   via: 'get'
+  match '/',   to: 'pages#index',   via: 'get'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
