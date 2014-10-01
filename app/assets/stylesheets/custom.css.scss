@@ -1,3 +1,4 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 /* mixins, variables, etc. */
@@ -48,7 +49,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $grayLight;
+  color: $gray-light;
 }
 
 p {
@@ -74,6 +75,54 @@ p {
     text-decoration: none;
   }
 }
+.navbar-custom {
+  background-color: #1b1b1b;
+  background-image: -moz-linear-gradient(top, #222, #111);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222), to(#111));
+  background-image: -webkit-linear-gradient(top, #222, #111);
+  background-image: linear-gradient(to bottom, #222, #111);
+  background-repeat: repeat-x;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF222222', endColorstr='#FF111111', GradientType=0);
+    color:#ffffff;
+    border-radius:0;
+    min-height:auto;
+}
+  
+.navbar-custom .navbar-nav > li > a {
+  color:#999;
+  padding-left:15px;
+  padding-right:15px;
+  /*padding-top:20px;
+  padding-bottom:20px;*/
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #090909;
+}
+      
+.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #090909;
+}
+      
+.navbar-custom .navbar-brand {
+   color:#eeeeee;
+   padding:20px;
+}
+
+.navbar-custom .navbar-toggle,
+.navbar-custom .nav .open>a, .navbar-custom .nav .open>a:hover, .navbar-custom .nav .open>a:focus {
+   background-color:transparent;
+}
+
+.navbar-custom .icon-bar {
+   border: 1px solid #fff;                
+}
+
+/*-- change navbar dropdown color --*/
+.navbar-custom .navbar-nav .open .dropdown-menu>li>a,.navbar-custom .navbar-nav .open .dropdown-menu {
+    color:#428bca;
+}
 
 /* footer */
 
@@ -81,11 +130,11 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
+  color: $gray-light;
   a {
     color: $gray;
     &:hover {
-      color: $grayDarker;
+      color: $gray-darker;
     }
   }
   small {
