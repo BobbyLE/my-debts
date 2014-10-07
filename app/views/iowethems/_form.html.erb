@@ -1,0 +1,25 @@
+<%= form_for(@iowethem) do |f| %>
+  <% if @iowethem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@iowethem.errors.count, "error") %> prohibited this iowethem from being saved:</h2>
+
+      <ul>
+      <% @iowethem.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :person %><br>
+    <%= f.text_field :person %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

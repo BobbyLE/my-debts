@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :iowethems
+
   root 'pages#index'
   match '/about',   to: 'pages#about',   via: 'get'
   match '/',   to: 'pages#index',   via: 'get'

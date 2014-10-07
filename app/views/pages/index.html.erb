@@ -1,14 +1,14 @@
 <% provide(:title, 'Home') %>
 <div class="center jumbotron">
   <% if !user_signed_in? %>
-  <h1>My Debts </h1>
+  <h1>My Debts</h1>
   <h2>
     by <%= link_to "Bobby LE", "http://www.bobbyle.net/" %></p>
   </h2>
 
   <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
   <% else %>
-  <h2>They owe you</h2>
+  <h2>They owe you <%= @user.id %></h2>
   <h2>You owe them </h2>
   <% end %>
 </div>
