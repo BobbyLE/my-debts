@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :iowethems
+  resources :debts
 
   root 'pages#index'
   match '/about',   to: 'pages#about',   via: 'get'
