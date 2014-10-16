@@ -13,16 +13,13 @@
 
   <div class="field">
     <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
+    <%= f.number_field :amount %>
   </div>
   <div class="field">
     <%= f.label :person %><br>
     <%= f.text_field :person %>
   </div>
-  <div class="field">
-    <%= f.label :youtothem %><br />
-    <%= f.check_box :youtothem %>
-  </div>
+  <%= f.hidden_field :youtothem, :value => "false" %>
   <div class="actions">
     <%= f.submit %>
   </div>

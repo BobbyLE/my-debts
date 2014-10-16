@@ -27,7 +27,6 @@ class DebtsController < ApplicationController
   def create
     @debt = Debt.new(debt_params)
     @debt.user = current_user
-    #@debt.youtothem.blank? @debt.youtothem = false
 
     respond_to do |format|
       if @debt.save
@@ -72,6 +71,6 @@ class DebtsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def debt_params
-      params.require(:debt).permit(:amount, :person)
+      params.require(:debt).permit(:amount, :person, :youtothem)
     end
 end
