@@ -8,7 +8,71 @@
 
   <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
   <% else %>
-  <h2>They owe you <%= @user.id %></h2>
-  <h2>You owe them </h2>
+  <!-- THEY OWE YOU -->
+  <h2>They owe you</h2>
+
+  <table style="margin:auto;">
+    <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Person</th>
+        <th>Youtothem</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @total = 0 %>
+      <% @theyoweyous.each do |theyoweyou| %>
+      <% @total += theyoweyou.amount %>
+        <tr>
+          <td><%= theyoweyou.amount %></td>
+          <td><%= theyoweyou.person %></td>
+          <td><%= theyoweyou.youtothem %></td>
+          <!--<td><%= link_to 'Show', theyoweyou %></td> -->
+          <td><%= link_to 'Edit', edit_debt_path(theyoweyou) %></td>
+          <td><%= link_to 'Destroy', theyoweyou, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to '+', new_debt_path %>
+  <br />
+  <br />
+  <strong>Total : <%= number_to_currency(@total, locale: :fr) %></strong>
+  <br />
+  <!-- YOU OWE THEM -->
+    <h2>You owe them</h2>
+
+    <table style="margin:auto;">
+      <thead>
+        <tr>
+          <th>Amount</th>
+          <th>Person</th>
+          <th>Youtothem</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @total = 0 %>
+        <% @youowethems.each do |youowethem| %>
+        <% @total += youowethem.amount %>
+          <tr>
+            <td><%= youowethem.amount %></td>
+            <td><%= youowethem.person %></td>
+            <td><%= youowethem.youtothem %></td>
+            <!--<td><%= link_to 'Show', youowethem %></td> -->
+            <td><%= link_to 'Edit', edit_debt_path(youowethem) %></td>
+            <td><%= link_to 'Destroy', youowethem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to '+', new_debt_path %>
+    <br />
+    <br />
+    <strong>Total : <%= number_to_currency(@total, locale: :fr) %></strong>
+
   <% end %>
 </div>
