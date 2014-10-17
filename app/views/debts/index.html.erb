@@ -5,7 +5,7 @@
     <tr>
       <th>Amount</th>
       <th>Person</th>
-      <th>Youtothem</th>
+      <th>Comment</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +17,7 @@
       <tr>
         <td><%= debt.amount %></td>
         <td><%= debt.person %></td>
-        <td><%= debt.youtothem %></td>
+        <td><%= debt.comment %></td>
         <!--<td><%= link_to 'Show', debt %></td> -->
         <td><%= link_to 'Edit', edit_debt_path(debt) %></td>
         <td><%= link_to 'Destroy', debt, method: :delete, data: { confirm: 'Are you sure?' } %></td>

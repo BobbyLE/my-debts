@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141015134336) do
+ActiveRecord::Schema.define(version: 20141017151953) do
 
   create_table "debts", force: true do |t|
     t.decimal  "amount"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20141015134336) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "comment"
   end
 
   add_index "debts", ["created_at"], name: "index_debts_on_created_at"
