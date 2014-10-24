@@ -1,0 +1,8 @@
+$('#new_debt').bind('ajax:success', function() {  
+        $('#theyoweyou_list tr:last').after('tr>
+          <td>amount</td>
+          <td class="person"><%= theyoweyou.person %></td>
+          <td><%= theyoweyou.comment %></td>
+          <td>Edit</td>
+          <td>Destroy</td></tr>')
+});

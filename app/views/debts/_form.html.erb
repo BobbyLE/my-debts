@@ -1,15 +1,13 @@
-<%= form_for(@debt) do |f| %>
-  <% if @debt.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@debt.errors.count, "error") %> prohibited this debt from being saved:</h2>
-
-      <ul>
-      <% @debt.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<%= form_for(@debt, remote: true, format: :json) do |f| %>
+   <div id="error_explanation" style='display:none;'>
+    <ul>
+      <% if @debt.errors.any? %>
+        <% @debt.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+  </div>
 
   <div class="field">
     <%= f.label :amount %><br>

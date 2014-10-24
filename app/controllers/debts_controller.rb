@@ -30,11 +30,11 @@ class DebtsController < ApplicationController
 
     respond_to do |format|
       if @debt.save
-        format.html { redirect_to @debt, notice: 'debt was successfully created.' }
-        format.json { render :show, status: :created, location: @debt }
+        format.html { redirect_to root_path, notice: 'debt was successfully created.' }
+        format.json { render json: @debt }
       else
         format.html { render :new }
-        format.json { render json: @debt.errors, status: :unprocessable_entity }
+        format.json { render json: @debt.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end
@@ -60,6 +60,7 @@ class DebtsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to debts_url, notice: 'debt was successfully destroyed.' }
       format.json { head :no_content }
+      format.js   { render :layout => false }
     end
   end
 

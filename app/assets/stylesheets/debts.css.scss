@@ -1,3 +1,10 @@
 // Place all the styles related to the Iowethems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#new_debt {
+	display:none;
+}
+#new_debt_link {
+	cursor:pointer;
+}
