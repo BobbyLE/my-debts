@@ -1,1 +1,21 @@
-$('#theyoweyou_list tr:last').after('<tr><td><%=  @debt.amount %></td><td class="person"><%= @debt.person %></td><td><%= @debt.comment %></td><td><%= link_to 'Edit', edit_debt_path(@debt) %></td><td><%= link_to 'Destroy', @debt, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td></tr>')
+$('#theyoweyou_list tr:last').after('<tr><td class="amount"><%=  @debt.amount %></td><td class="person"><%= @debt.person %></td><td class="comment"><%= @debt.comment %></td><td><%= link_to 'Edit', edit_debt_path(@debt) %></td><td><%= link_to 'Destroy', @debt, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td></tr>')
+
+$debt_form = $('form#new_debt')
+$error_container = $("#error_explanation", $debt_form)
+$error_container_ul = $("ul", $error_container)
+
+/*reset form and fadeout */
+$("<p>").html("Debt saved.").insertAfter($debt_form).delay(2000).fadeOut(1000)
+$("#new_debt")[0].reset()
+$debt_form.fadeOut(1000)
+if($("li", $error_container_ul).length) {
+	$("li", $error_container_ul).remove()
+	$error_container.hide()
+}
+/* modify total */
+var total = 0;
+$('table#theyoweyou_list td.amount').each(function () {
+	total += parseFloat($(this).text(),10);
+});
+console.log(total);
+$('#theyoweyou_total').text(parseFloat(total,10)+" €");

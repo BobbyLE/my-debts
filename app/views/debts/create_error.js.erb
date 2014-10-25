@@ -1,0 +1,5 @@
+$debt_form = $(event.data)
+
+$("#error_explanation ul").empty()
+$("#error_explanation ul").append('<% @debt.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %>')
+$("#error_explanation").show()

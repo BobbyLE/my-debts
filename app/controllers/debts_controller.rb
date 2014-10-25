@@ -31,11 +31,12 @@ class DebtsController < ApplicationController
     respond_to do |format|
       if @debt.save
         format.html { redirect_to root_path, notice: 'debt was successfully created.' }
-        format.json { render json: @debt }
-        format.js { }
+        #format.json { render json: @debt }
+        format.js {  render :layout => false }
       else
         format.html { render :new }
-        format.json { render json: @debt.errors.full_messages, status: :unprocessable_entity }
+        #format.json { render json: @debt.errors.full_messages, status: :unprocessable_entity }
+        format.js {  render :template => 'debts/create_error', status: :unprocessable_entity  }
       end
     end
   end
