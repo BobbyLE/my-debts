@@ -1,8 +1,1 @@
-$('#new_debt').bind('ajax:success', function() {  
-        $('#theyoweyou_list tr:last').after('tr>
-          <td>amount</td>
-          <td class="person"><%= theyoweyou.person %></td>
-          <td><%= theyoweyou.comment %></td>
-          <td>Edit</td>
-          <td>Destroy</td></tr>')
-});
+$('#theyoweyou_list tr:last').after('<tr><td><%=  @debt.amount %></td><td class="person"><%= @debt.person %></td><td><%= @debt.comment %></td><td><%= link_to 'Edit', edit_debt_path(@debt) %></td><td><%= link_to 'Destroy', @debt, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td></tr>')

@@ -1,4 +1,4 @@
-<%= form_for(@debt, remote: true, format: :json) do |f| %>
+<%= form_for(@debt, remote: true, format: :js) do |f| %>
    <div id="error_explanation" style='display:none;'>
     <ul>
       <% if @debt.errors.any? %>

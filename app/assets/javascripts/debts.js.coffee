@@ -13,11 +13,19 @@ $ ->
 	    $('form#new_debt').fadeOut(1000)
 
 	    #display message and fadeout
+	    ###
+	    $('#theyoweyou_list tr:last').after('<tr>
+          <td>'+xhr.responseJSON.amount+'</td>
+          <td class="person">'+xhr.responseJSON.person+'</td>
+          <td>'+xhr.responseJSON.comment+'</td>
+          <td>Edit</td>
+          <td><a class="delete_debt" data-confirm="Are you sure?" data-method="delete" data-remote="true" href="/debt/'+xhr.responseJSON.id+'" rel="nofollow">Destroy</td></tr>')
+	    ###
 	    $("<p>").html("Debt saved.").insertAfter($debt_form).delay(2000).fadeOut(1000)
 	    if $("li", $error_container_ul).length
 	      $("li", $error_container_ul).remove()
 	      $error_container.hide()
-
+	###
 	$(document).bind "ajaxError", "form#new_debt", (event, jqxhr, settings, exception) ->
 		$debt_form = $(event.data)
 		#remove the old errors
@@ -27,6 +35,7 @@ $ ->
 		$error_container.show()  if $error_container.is(":hidden")
 		$.each jqxhr.responseJSON, (index, message) ->
 			$("<li>").html(message).appendTo $error_container_ul
+	###
 
 	$("#new_debt_link").click ->
 		$('#new_debt').insertBefore($(this))
