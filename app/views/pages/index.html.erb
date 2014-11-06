@@ -60,7 +60,7 @@
           <tr>
             <td class="amount"><%= youowethem.amount %></td>
             <td class="person"><%= youowethem.person %></td>
-            <td class="comment"><%= youowethem.youtothem %></td>
+            <td class="comment"><%= youowethem.comment %></td>
             <!--<td><%= link_to 'Show', youowethem %></td> -->
             <!--<td><%= link_to 'Edit', edit_debt_path(youowethem) %></td>-->
             <td><%= link_to '✖', youowethem, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td>
@@ -69,8 +69,6 @@
       </tbody>
     </table>
     <p id="new_debt_youowethem_link">+</p>
-    <br />
-    <br />
     <strong id="youowethem_total">Total: <%= number_to_currency(@total, locale: :fr) %></strong>
 
   <% end %>
