@@ -3,6 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-	$("#new_debt_link").click ->
+	$("#new_debt_theyoweyou_link").click ->
 		$('#new_debt').insertBefore($(this))
+		$('#new_debt').fadeIn()
+	$("#new_debt_youowethem_link").click ->
+		$('#new_debt').insertBefore($(this))
+		$('#new_debt #debt_youtothem').val('true') 
 		$('#new_debt').fadeIn()

@@ -1,4 +1,9 @@
-$('#theyoweyou_list tr:last').after('<tr><td class="amount"><%=  @debt.amount %></td><td class="person"><%= @debt.person %></td><td class="comment"><%= @debt.comment %></td><td><%= link_to 'Edit', edit_debt_path(@debt) %></td><td><%= link_to 'Destroy', @debt, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td></tr>')
+/* You owe them */
+console.log($('#new_debt #debt_youtothem').val())
+if($('#new_debt #debt_youtothem').val() == "true")
+	$('#youowethem_list tr:last').after('<tr><td class="amount"><%=  @debt.amount %></td><td class="person"><%= @debt.person %></td><td class="comment"><%= @debt.comment %></td><td><%= link_to '✖', @debt, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td></tr>')
+else
+	$('#theyoweyou_list tr:last').after('<tr><td class="amount"><%=  @debt.amount %></td><td class="person"><%= @debt.person %></td><td class="comment"><%= @debt.comment %></td><td><%= link_to '✖', @debt, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td></tr>')
 
 $debt_form = $('form#new_debt')
 $error_container = $("#error_explanation", $debt_form)
@@ -17,5 +22,10 @@ var total = 0;
 $('table#theyoweyou_list td.amount').each(function () {
 	total += parseFloat($(this).text(),10);
 });
-console.log(total);
-$('#theyoweyou_total').text(parseFloat(total,10)+" €");
+$('#theyoweyou_total').text("Total: "+parseFloat(total,10)+" €");
+
+var totalyot = 0;
+$('table#youowethem_list td.amount').each(function () {
+	totalyot += parseFloat($(this).text(),10);
+});
+$('#youowethem_total').text("Total: "+parseFloat(totalyot,10)+" €");

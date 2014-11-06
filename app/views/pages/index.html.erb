@@ -1,5 +1,5 @@
 <% provide(:title, 'Home') %>
-<div class="center jumbotron">
+<div class="center">
   <% if !user_signed_in? %>
   <h1>My Debts</h1>
   <h2>
@@ -11,13 +11,13 @@
   <!-- THEY OWE YOU -->
   <h1>They owe you</h1>
 
-  <table style="margin:auto;" id="theyoweyou_list">
+  <table id="theyoweyou_list">
     <thead>
       <tr>
         <th>Amount</th>
         <th>Person</th>
         <th>Comment</th>
-        <th colspan="3"></th>
+        <th colspan="2"></th>
       </tr>
     </thead>
 
@@ -30,28 +30,26 @@
           <td class="person"><%= theyoweyou.person %></td>
           <td class="comment"><%= theyoweyou.comment %></td>
           <!--<td><%= link_to 'Show', theyoweyou %></td> -->
-          <td><%= link_to 'Edit', edit_debt_path(theyoweyou) %></td>
-          <td><%= link_to 'Destroy', theyoweyou, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td>
+          <!--<td><%= link_to 'Edit', edit_debt_path(theyoweyou) %></td>-->
+          <td><%= link_to '✖', theyoweyou, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <p id="new_debt_link">+</p>
+  <p id="new_debt_theyoweyou_link">+</p>
   <%= render 'debts/form' %>
-  <br />
-  <br />
   <strong id="theyoweyou_total">Total : <%= number_to_currency(@total, locale: :fr) %></strong>
   <br />
   <!-- YOU OWE THEM -->
     <h1>You owe them</h1>
 
-    <table style="margin:auto;">
+    <table id="youowethem_list">
       <thead>
         <tr>
           <th>Amount</th>
           <th>Person</th>
-          <th>Youtothem</th>
-          <th colspan="3"></th>
+          <th>Comment</th>
+          <th colspan="2"></th>
         </tr>
       </thead>
 
@@ -60,20 +58,20 @@
         <% @youowethems.each do |youowethem| %>
         <% @total += youowethem.amount %>
           <tr>
-            <td><%= youowethem.amount %></td>
-            <td><%= youowethem.person %></td>
-            <td><%= youowethem.youtothem %></td>
+            <td class="amount"><%= youowethem.amount %></td>
+            <td class="person"><%= youowethem.person %></td>
+            <td class="comment"><%= youowethem.youtothem %></td>
             <!--<td><%= link_to 'Show', youowethem %></td> -->
-            <td><%= link_to 'Edit', edit_debt_path(youowethem) %></td>
-            <td><%= link_to 'Destroy', youowethem, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td>
+            <!--<td><%= link_to 'Edit', edit_debt_path(youowethem) %></td>-->
+            <td><%= link_to '✖', youowethem, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-    <%= link_to '+', new_debt_path %>
+    <p id="new_debt_youowethem_link">+</p>
     <br />
     <br />
-    <strong id="youowethem_total">Total : <%= number_to_currency(@total, locale: :fr) %></strong>
+    <strong id="youowethem_total">Total: <%= number_to_currency(@total, locale: :fr) %></strong>
 
   <% end %>
 </div>

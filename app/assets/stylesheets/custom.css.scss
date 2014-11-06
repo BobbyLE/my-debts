@@ -1,6 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
@@ -13,6 +13,8 @@ html {
 
 body {
   padding-top: 60px;
+  font-family: Roboto;
+  font-size: 16px;
 }
 
 section {
@@ -37,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2em;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
@@ -71,7 +73,7 @@ p {
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: white;
+    color: #0081c2;
     text-decoration: none;
   }
 }
@@ -162,6 +164,56 @@ p {
   right: 13px;
 }
 
+/* table */
+table {
+  thead {
+    color: #fff;
+    background-color: #288AB8;
+  }
+  tr {
+    border-bottom: 1px solid #ddd;
+  }
+  tbody tr {
+    &:hover {
+      background-color: #eeeeee;
+    }
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+}
+
+table#theyoweyou_list, table#youowethem_list {
+  width:600px;
+  margin:auto;
+  
+  .amount {
+    width: 100px;
+  }
+  .person {
+    width: 150px;
+  }
+  .comment {
+    width: 315px;
+  }
+}
+
+a.delete_debt{
+  font-size: 18px;
+  color: #CF5B5B;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  &:hover {
+    text-shadow:  0 0 1px #000,
+                  0 0 10px rgba(199, 107, 107, 0.8);
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+    text-decoration:none;
+  }
+}
+
 /* footer */
 
 footer {
@@ -228,4 +280,9 @@ form {
     width:1.5em;
     float:left;
   }
+}
+
+/* Error */
+#error_explanation {
+  color: #CF5B5B;
 }

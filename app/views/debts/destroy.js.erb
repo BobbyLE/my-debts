@@ -6,8 +6,12 @@ $('.delete_debt').bind('ajax:success', function() {
 		$('table#theyoweyou_list td.amount').each(function () {
 			total += parseFloat($(this).text(),10);
 		});
-		console.log(total);
-		$('#theyoweyou_total').delay(400).text(parseFloat(total,10)+" €");
+		$('#theyoweyou_total').delay(400).text("Total: "+parseFloat(total,10)+" €");
+		var totalyot = 0;
+		$('table#youowethem_list td.amount').each(function () {
+			totalyot += parseFloat($(this).text(),10);
+		});
+		$('#youowethem_total').text("Total: "+parseFloat(totalyot,10)+" €");
 
 	});
 });
