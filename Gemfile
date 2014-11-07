@@ -36,6 +36,8 @@ gem 'spring',        group: :development
 
 # Authentification
 gem 'devise'
+#Handle flash ajax
+gem 'unobtrusive_flash', '>=3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

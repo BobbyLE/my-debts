@@ -16,3 +16,10 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
+//= require unobtrusive_flash
+//= require unobtrusive_flash_bootstrap
+
+UnobtrusiveFlash.flashOptions['timeout'] = 3000; // milliseconds
+
+
+

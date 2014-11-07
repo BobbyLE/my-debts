@@ -14,21 +14,22 @@
   <table id="theyoweyou_list">
     <thead>
       <tr>
-        <th>Amount</th>
-        <th>Person</th>
-        <th>Comment</th>
+        <th class="amount">Amount</th>
+        <th class="person">Person</th>
+        <th class="comment">Comment</th>
         <th colspan="2"></th>
       </tr>
     </thead>
 
     <tbody>
+      <tr></tr>
       <% @total = 0 %>
       <% @theyoweyous.each do |theyoweyou| %>
       <% @total += theyoweyou.amount %>
         <tr>
           <td class="amount"><%= theyoweyou.amount %></td>
           <td class="person"><%= theyoweyou.person %></td>
-          <td class="comment"><%= theyoweyou.comment %></td>
+          <td><%= theyoweyou.comment %></td>
           <!--<td><%= link_to 'Show', theyoweyou %></td> -->
           <!--<td><%= link_to 'Edit', edit_debt_path(theyoweyou) %></td>-->
           <td><%= link_to '✖', theyoweyou, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td>
@@ -46,14 +47,15 @@
     <table id="youowethem_list">
       <thead>
         <tr>
-          <th>Amount</th>
-          <th>Person</th>
-          <th>Comment</th>
-          <th colspan="2"></th>
+          <th class="amount">Amount</th>
+          <th class="person">Person</th>
+          <th class="comment">Comment</th>
+          <th></th>
         </tr>
       </thead>
 
       <tbody>
+        <tr></tr>
         <% @total = 0 %>
         <% @youowethems.each do |youowethem| %>
         <% @total += youowethem.amount %>

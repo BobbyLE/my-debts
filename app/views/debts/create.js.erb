@@ -1,16 +1,14 @@
 /* You owe them */
-console.log($('#new_debt #debt_youtothem').val())
 if($('#new_debt #debt_youtothem').val() == "true")
-	$('#youowethem_list tr:last').after('<tr><td class="amount"><%=  @debt.amount %></td><td class="person"><%= @debt.person %></td><td class="comment"><%= @debt.comment %></td><td><%= link_to '✖', @debt, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td></tr>')
+	$('#youowethem_list tbody tr:last').after('<tr><td class="amount"><%=  @debt.amount %></td><td class="person"><%= @debt.person %></td><td class="comment"><%= @debt.comment %></td><td><%= link_to '✖', @debt, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td></tr>')
 else
-	$('#theyoweyou_list tr:last').after('<tr><td class="amount"><%=  @debt.amount %></td><td class="person"><%= @debt.person %></td><td class="comment"><%= @debt.comment %></td><td><%= link_to '✖', @debt, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td></tr>')
+	$('#theyoweyou_list tbody tr:last').after('<tr><td class="amount"><%=  @debt.amount %></td><td class="person"><%= @debt.person %></td><td class="comment"><%= @debt.comment %></td><td><%= link_to '✖', @debt, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_debt' %></td></tr>')
 
 $debt_form = $('form#new_debt')
 $error_container = $("#error_explanation", $debt_form)
 $error_container_ul = $("ul", $error_container)
 
 /*reset form and fadeout */
-$("<p>").html("Debt saved.").insertAfter($debt_form).delay(2000).fadeOut(1000)
 $("#new_debt")[0].reset()
 $debt_form.fadeOut(1000)
 if($("li", $error_container_ul).length) {
