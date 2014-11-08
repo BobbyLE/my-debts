@@ -5,7 +5,8 @@
   <h2>
     by <%= link_to "Bobby LE", "http://www.bobbyle.net/" %></p>
   </h2>
-
+<% if !user_signed_in? %>
   <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+ <% end %>
 </div>
 
