@@ -3,7 +3,7 @@
   <h1>My Debts</h1>
 
   <h2>
-    by <%= link_to "Bobby LE", "http://www.bobbyle.net/" %></p>
+    by <%= link_to "Bobby LE", "http://www.bobbyle.net/", :target => "_blank" %></p>
   </h2>
 <% if !user_signed_in? %>
   <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>

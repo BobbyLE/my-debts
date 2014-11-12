@@ -16,14 +16,41 @@ if($("li", $error_container_ul).length) {
 	$error_container.hide()
 }
 /* modify total */
+/* Animation countUp of total */
+/* options */
+var options = {
+  useEasing : true, 
+  useGrouping : true, 
+  separator : ',', 
+  decimal : '.',
+  prefix : 'Total: ', 
+  suffix : '€' 
+}
+/* Get the old total */
+oldTotal = $('#theyoweyou_total').text();
+oldTotal = Number(oldTotal.substring(7,oldTotal.length-2).replace(/[^0-9\.]+/g,""));
+
+/* Get the new total */
 var total = 0;
 $('table#theyoweyou_list td.amount').each(function () {
 	total += parseFloat($(this).text(),10);
 });
-$('#theyoweyou_total').text("Total: "+parseFloat(total,10)+" €");
+/* Start the animation */
+var numAnim = new countUp("theyoweyou_total", oldTotal, parseFloat(total,10), 2, 1.5, options);
+numAnim.start();
 
-var totalyot = 0;
+//$('#theyoweyou_total').text("Total: "+parseFloat(total,10)+" €");
+
+/* Get the old total */
+oldTotalYot = $('#youowethem_total').text();
+oldTotalYot = Number(oldTotalYot.substring(7,oldTotalYot.length-2).replace(/[^0-9\.]+/g,""));
+
+/*Get the new total */
+var totalYot = 0;
 $('table#youowethem_list td.amount').each(function () {
-	totalyot += parseFloat($(this).text(),10);
+	totalYot += parseFloat($(this).text(),10);
 });
-$('#youowethem_total').text("Total: "+parseFloat(totalyot,10)+" €");
+/* Start the animation */
+var numAnim = new countUp("youowethem_total", oldTotalYot, parseFloat(totalYot,10), 2, 1.5, options);
+numAnim.start();
+//$('#youowethem_total').text("Total: "+parseFloat(totalyot,10)+" €");
